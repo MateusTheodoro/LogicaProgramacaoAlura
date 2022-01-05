@@ -1,0 +1,29 @@
+<meta charset="UTF-8" />
+
+<script>
+  function pulaLinha() {
+    document.write('<br><br>')
+  }
+
+  function mostra(frase) {
+    document.write(frase)
+    pulaLinha()
+  }
+
+  var ano = 2022
+  mostra('Flávio tem ' + (ano - 1987))
+  mostra('Cláduio tem ' + (ano - 1997))
+  ano = 2021
+  mostra('Ronaldo tem ' + (ano - 1954))
+
+  var idadeFlavio = 35
+  var idadeCladuio = 25
+  var idadeRonaldo = 67
+
+  var media = (idadeFlavio + idadeCladuio + idadeRonaldo) / 3
+
+  mostra('Média dos três: ' + Math.round(media))
+
+  var nome = 'Flavio'
+  mostra('A idade de ' + nome + ' é ' + idadeFlavio)
+</script>
