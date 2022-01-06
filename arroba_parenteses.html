@@ -1,0 +1,38 @@
+<meta charset="UTF-8" />
+
+<script>
+  function pulaLinha() {
+    // função que pula uma linha
+    document.write('<br>')
+  }
+
+  function mostra(frase) {
+    // função que escreve uma string recebida no documento html e pula uma linha
+    document.write(frase)
+    pulaLinha()
+  }
+
+  function a(texto) {
+    // função que retorna uma string entre parenteses
+    return '(' + texto + ')'
+  }
+
+  function b(texto) {
+    // função que retorna uma string entre 'arrobas'
+    return '@' + texto + '@'
+  }
+
+  function c(nome, sobrenome) {
+    // função que recebe duas strings e retorna uma string utilizando-se das funções a e b
+    return b(nome + ' ' + a(sobrenome))
+  }
+
+  var resultado = c('Flávio', 'Almeida')
+  /* resultado recebe o que retornar da função c
+        - a função c retorna 'b(Flávio + " " + a(Almeida))'
+        - a função a retorna o texto entre "()" e a b retorna o texto entre "@@", então o retorno será:
+        - @Flávio (Almeida)@
+    */
+
+  mostra(resultado) // a variável resultado é impressa na tela com o auxílio da função 'mostra'
+</script>
