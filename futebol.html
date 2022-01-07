@@ -9,6 +9,25 @@
     document.write(frase)
     pulaLinha()
   }
+  var time = prompt('Digite o seu time: ')
+  var vitorias = parseInt(
+    prompt('Digite a quantidade de vitórias do ' + time + ': ')
+  )
+  var empates = parseInt(
+    prompt('Digite a quantidade de empates do ' + time + ': ')
+  )
+  var totalPontos = vitorias * 3 + empates
+  mostra('Total de pontos do ' + time + ' é de: ' + totalPontos + ' pontos')
 
+  if (totalPontos > 28) {
+    mostra('Seu time está melhor do que o ano passado!')
+  }
 
+  if (totalPontos < 28) {
+    mostra('Seu time está pior do que o ano passado!')
+  }
+
+  if (totalPontos == 28) {
+    mostra('Seu time está igual ao ano passado!')
+  }
 </script>

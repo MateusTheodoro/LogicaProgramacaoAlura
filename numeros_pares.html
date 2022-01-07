@@ -1,0 +1,22 @@
+<meta charset="UTF-8" />
+
+<script>
+  function pulaLinha() {
+    document.write('<br><br>')
+  }
+
+  function mostra(frase) {
+    document.write(frase)
+    pulaLinha()
+  }
+
+  var limite = 100
+  contador = 2
+
+  while (limite >= contador) {
+    mostra(contador + ' é par!')
+    contador = contador + 2
+  }
+
+  mostra('Fim.')
+</script>
