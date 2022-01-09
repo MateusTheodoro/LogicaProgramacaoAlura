@@ -1,81 +1,67 @@
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 
-<input/>
+<input />
 <button>Compare com o meu segredo</button>
 
 <script>
-    function sorteia() {
+  function sorteia() {
+    return Math.round(Math.random() * 10)
+  }
 
-       return Math.round(Math.random() * 10);
+  function sorteiaNumeros(quantidade) {
+    var segredos = []
 
-    }
+    var numero = 1
 
-    function sorteiaNumeros(quantidade) {
+    while (numero <= quantidade) {
+      var numeroAleatorio = sorteia()
+      var achou = false
 
-        var segredos = [];
-
-        var numero = 1;
-
-        while(numero <= quantidade) {
-
-              var numeroAleatorio = sorteia();
-              var achou = false;
-
-              if (numeroAleatorio !== 0) {
-                     for(var posicao = 0; posicao < segredos.length; posicao++) {
-
-                           if(segredos[posicao] == numeroAleatorio){
-                                achou = true;
-                                break;
-                           }
-
-                     }
-
-                     if (achou == false) {
-                           segredos.push(numeroAleatorio);
-                           numero++;
-                     }
-              }
-
+      if (numeroAleatorio !== 0) {
+        for (var posicao = 0; posicao < segredos.length; posicao++) {
+          if (segredos[posicao] == numeroAleatorio) {
+            achou = true
+            break
+          }
         }
 
-        return segredos;
-
+        if (achou == false) {
+          segredos.push(numeroAleatorio)
+          numero++
+        }
+      }
     }
 
-    var segredos = sorteiaNumeros(3);
+    return segredos
+  }
 
-    console.log(segredos);
+  var segredos = sorteiaNumeros(3)
 
-    var input = document.querySelector("input");
-    input.focus();
+  console.log(segredos)
 
-    function verifica() {
+  var input = document.querySelector('input')
+  input.focus()
 
-       var achou = false;
+  function verifica() {
+    var achou = false
 
-       for(var posicao = 0; posicao < segredos.length; posicao++) {
-
-              if(input.value == segredos[posicao]) {
-
-                     alert("Você ACERTOU!");
-                     achou = true;
-                     break;
-              } 
-       }
-
-       if(achou == false) {
-
-              alert("Você ERROU!");
-       }
-
-       input.value = "";
-       input.focus();
-
+    for (var posicao = 0; posicao < segredos.length; posicao++) {
+      if (input.value == segredos[posicao]) {
+        alert('Você ACERTOU!')
+        achou = true
+        break
+      }
     }
 
-    var button = document.querySelector("button");
+    if (achou == false) {
+      alert('Você ERROU!')
+    }
 
-    button.onclick = verifica;
+    input.value = ''
+    input.focus()
+  }
 
+  var button = document.querySelector('button')
+
+  button.onclick = verifica
 </script>
