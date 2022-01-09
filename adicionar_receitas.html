@@ -12,9 +12,19 @@
   while (contador <= quantidade) {
     var ingrediente = prompt('Informe o ingrediente ' + contador)
 
-    ingredientes.push(ingrediente)
+    var existe = false
 
-    contador++
+    for (var posicao = 0; posicao < ingredientes.length; posicao++) {
+      if (ingredientes[posicao] == ingrediente) {
+        existe = true
+        break
+      }
+    }
+
+    if (existe == false) {
+      ingredientes.push(ingrediente)
+      contador++
+    }
   }
 
   console.log(ingredientes)
