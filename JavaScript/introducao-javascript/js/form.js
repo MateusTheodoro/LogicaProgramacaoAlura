@@ -9,10 +9,17 @@ botaoAdicionar.addEventListener('click', function (event) {
   //cria a tr e a td do paciente
   var pacienteTr = montaTr(paciente)
 
+  if (!validaPaciente(paciente)) {
+    console.log('Paciente inválido!')
+    return
+  }
+
   //adicionando o paciente na tabela.
   var tabela = document.querySelector('#tabela-pacientes')
 
   tabela.appendChild(pacienteTr)
+
+  form.reset()
 })
 
 function obtemPacienteDoFormulario(form) {
@@ -27,37 +34,16 @@ function obtemPacienteDoFormulario(form) {
   return paciente
 }
 
-function montaTr() {
+function montaTr(paciente) {
   pacienteTr = document.createElement('tr')
   pacienteTr.classList.add('paciente')
-
-  var nomeTd = document.createElement('td')
-  pacienteTr.classList.add('paciente')
-
-  var nomeTd = document.createElement('td')
-  nomeTd.classList.add('info-nome')
-  nomeTd.textContent = paciente.nome
-
-  /*
-  var nomeTd = document.createElement('td')
-  var pesoTd = document.createElement('td')
-  var alturaTd = document.createElement('td')
-  var gorduraTd = document.createElement('td')
-  var imcTd = document.createElement('td')
-
-  nomeTd.textContent = nome
-  pesoTd.textContent = peso
-  alturaTd.textContent = altura
-  gorduraTd.textContent = gordura
-  imcTd.textContent = calculaImc(peso, altura)
-  */
 
   pacienteTr.appendChild(montaTd(paciente.nome, 'info-nome'))
   pacienteTr.appendChild(montaTd(paciente.peso, 'info-peso'))
   pacienteTr.appendChild(montaTd(paciente.altura, 'info-altura'))
   pacienteTr.appendChild(montaTd(paciente.gordura, 'info-gordura'))
   pacienteTr.appendChild(montaTd(paciente.imc, 'info-imc'))
-  
+
   return pacienteTr
 }
 
@@ -67,4 +53,12 @@ function montaTd(dado, classe) {
   td.classList.add(classe)
 
   return td
+}
+
+function validaPaciente(paciente) {
+  if (validaPeso(paciente.peso)) {
+    return true
+  } else {
+    return false
+  }
 }
